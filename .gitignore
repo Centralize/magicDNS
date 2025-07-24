@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Operating System Files
+.DS_Store
+.Trash-*
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDEs
+.idea/
+.vscode/
+
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+db/*.sqlite
+db/*.sqlite3
+
+# Configuration sensitive files (if not meant for repo)
+config/config.ini # Uncomment if you plan to keep configuration out of source control
