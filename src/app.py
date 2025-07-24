@@ -170,7 +170,8 @@ class DNSResolver:
             return answer_data
         elif qtype_text == 'TXT':
             # TXT records need to be quoted
-            return f
+            return f"\"{answer_data}\""
+        elif qtype_text == 'SRV':
             # SRV records are "priority weight port target" e.g., "0 5 5060 sip.example.com."
             # Ensure target ends with a dot
             parts = answer_data.split(' ')
@@ -203,6 +204,26 @@ class DNSResolver:
             parts = answer_data.split(' ', 1)
             if len(parts) == 2:
                 return f"\"{parts[0]}\" \"{parts[1]}\""
+            return f"\"{answer_data}\""
+        elif qtype_text == 'CAA':
+            # CAA records are "flags tag value" e.g., "0 issue \"letsencrypt.org\""
+            # Value needs to be quoted
+            parts = answer_data.split(' ', 2)
+            if len(parts) == 3:
+                return f"{parts[0]} {parts[1]} \"{parts[2]}\""
+            return answer_data
+        elif qtype_text == 'LOC':
+            # LOC records are "d1 [m] lat [m] d2 [m] long [m] alt [m] siz [m] hp [m] vp [m]"
+            # No special quoting, but ensure format is correct
+            return answer_data
+        elif qtype_text == 'SSHFP':
+            # SSHFP records are "algorithm_number fingerprint_type_number fingerprint"
+            return answer_data
+        elif qtype_text == 'URI':
+            # URI records are "priority weight target" where target is a URI and needs to be quoted
+            parts = answer_data.split(' ', 2)
+            if len(parts) == 3:
+                return f"{parts[0]} {parts[1]} \"{parts[2]}\""
             return answer_data
         # A, AAAA, CNAME (already handled for target dot), etc. can be used as is
         return answer_data

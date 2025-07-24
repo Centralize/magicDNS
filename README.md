@@ -17,6 +17,7 @@ This project implements a simple, custom DNS server written in Python 3 for Linu
 ## Features
 
 - **Custom DNS Resolution:** Resolve domain names based on predefined records or act as a forwarding resolver.
+- **Supported Record Types:** A, AAAA, MX, TXT, SRV, NS, PTR, SOA, HINFO, CAA, LOC, SSHFP, URI.
 - **Python 3 Based:** Leverages Python's network capabilities for ease of development and readability.
 - **Linux Native:** Designed and optimized for Linux operating systems.
 - **Lightweight:** Minimal dependencies, suitable for embedded systems or low-resource environments.
