@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  dns_server:
+    build: .
+    ports:
+      - "5353:5353/udp"
+    volumes:
+      - ./config:/app/config
+      - ./zones:/app/zones
+    restart: unless-stopped

@@ -1,0 +1,43 @@
+{
+  "A": {
+    "@": "127.0.0.1",
+    "www": "127.0.0.1"
+  },
+  "AAAA": {
+    "@": "::1"
+  },
+  "MX": {
+    "@": "10 mail.localapp.dev."
+  },
+  "TXT": {
+    "@": "v=spf1 -all",
+    "_dmarc": "v=DMARC1; p=none; rua=mailto:dmarc@localapp.dev"
+  },
+  "SRV": {
+    "_sip._tcp": "0 5 5060 sip.localapp.dev."
+  },
+  "NS": {
+    "@": "ns1.localapp.dev."
+  },
+  "SOA": {
+    "@": "ns1.localapp.dev. hostmaster.localapp.dev. 2023010101 7200 3600 1209600 3600"
+  },
+  "HINFO": {
+    "@": "CPU_TYPE OS_TYPE"
+  },
+  "CAA": {
+    "@": "0 issue \"letsencrypt.org\""
+  },
+  "LOC": {
+    "@": "30 12 14.000 N 97 44 35.000 W 100m"
+  },
+  "SSHFP": {
+    "@": "1 1 1234567890abcdef1234567890abcdef12345678"
+  },
+  "URI": {
+    "_sip._tcp": "10 1 \"sip:info@localapp.dev\""
+  },
+  "CNAME": {
+    "service": "www"
+  }
+}
