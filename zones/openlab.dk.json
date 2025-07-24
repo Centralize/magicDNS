@@ -1,0 +1,34 @@
+{
+  "A": {
+    "@": "127.0.0.1",
+    "www": "127.0.0.1",
+    "ns1": "192.168.64.2"
+  },
+  "AAAA": {
+    "@": "::1"
+  },
+  "NS": {
+    "@": "ns1.openlab.dk."
+  },
+  "SOA": {
+    "@": "ns1.openlab.dk. hostmaster.openlab.dk. 2023010101 7200 3600 1209600 3600"
+  },
+  "HINFO": {
+    "@": "CPU_TYPE OS_TYPE"
+  },
+  "CAA": {
+    "@": "0 issue \"letsencrypt.org\""
+  },
+  "LOC": {
+    "@": "30 12 14.000 N 97 44 35.000 W 100m"
+  },
+  "SSHFP": {
+    "@": "1 1 1234567890abcdef1234567890abcdef12345678"
+  },
+  "URI": {
+    "_sip._tcp": "10 1 \"sip:info@openlab.dk\""
+  },
+  "CNAME": {
+    "service": "www"
+  }
+}

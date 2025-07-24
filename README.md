@@ -98,7 +98,7 @@ LimitNOFILE=65536
 WantedBy=multi-user.target
 ```
 
-Remember to replace `/path/to/my-dns-server` with the actual path to your project directory.
+Remember to replace `/path/to/magicdns` with the actual path to your project directory.
 
 Then, enable and start the service:
 
@@ -139,16 +139,6 @@ LISTEN_IP = 0.0.0.0       # IP address to listen on (0.0.0.0 for all interfaces)
 LISTEN_PORT = 53        # Port to listen on (default DNS port)
 FORWARDERS = 8.8.8.8, 1.1.1.1 # Comma-separated list of upstream DNS servers
 LOG_LEVEL = INFO        # Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-STATIC_RECORDS_FILE = config/records.json # Path to a JSON file for static DNS records
-
-[RECORDS] # Example for static records loaded from config.ini directly
-# A records
-example.com. = 192.168.1.1
-[www.example.com](https://www.example.com). = 192.168.1.1
-# CNAME records
-app.example.com. = [www.example.com](https://www.example.com).
-# PTR records (for reverse DNS)
-1.1.168.192.in-addr.arpa. = example.com.
 ```
 
 **Example `config/records.json` (if used for static records):**
