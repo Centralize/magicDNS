@@ -1,4 +1,4 @@
-# My Custom DNS Server
+# magicDNS
 
 This project implements a simple, custom DNS server written in Python 3 for Linux environments. It aims to provide a lightweight and configurable DNS resolution service, primarily for local network use, development environments, or specialized applications.
 
@@ -37,8 +37,8 @@ Follow these steps to set up and run your DNS server.
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/your-username/my-dns-server.git](https://github.com/your-username/my-dns-server.git)
-cd my-dns-server
+git clone [https://github.com/your-username/magicDNS.git](https://github.com/your-username/magicDNS.git)
+cd magicDNS
 ```
 
 *(Note: Replace `https://github.com/your-username/my-dns-server.git` with your actual repository URL once available.)*
@@ -77,18 +77,18 @@ RECORDS_FILE = records.json # Or similar, if using a file for static records
 
 For continuous operation, create a systemd service unit file.
 
-Create `/etc/systemd/system/my-dns-server.service`:
+Create `/etc/systemd/system/magicDNS.service`:
 
 ```ini
 [Unit]
-Description=My Custom DNS Server
+Description=magicDNS
 After=network.target
 
 [Service]
 User=nobody # Or a dedicated user like 'dnsuser'
 Group=nogroup # Or 'dnsuser'
-WorkingDirectory=/path/to/my-dns-server
-ExecStart=/path/to/my-dns-server/venv/bin/python /path/to/my-dns-server/src/app.py --config /path/to/my-dns-server/config.ini
+WorkingDirectory=/path/to/magicDNS
+ExecStart=/path/to/magicDNS/venv/bin/python /path/to/magicDNS/src/app.py --config /path/to/magicDNS/config.ini
 Restart=on-failure
 StandardOutput=journal
 StandardError=journal
@@ -104,9 +104,9 @@ Then, enable and start the service:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable my-dns-server.service
-sudo systemctl start my-dns-server.service
-sudo systemctl status my-dns-server.service
+sudo systemctl enable magicDNS.service
+sudo systemctl start magicDNS.service
+sudo systemctl status magicDNS.service
 ```
 
 ### 5\. Configure Firewall (e.g., UFW/firewalld)

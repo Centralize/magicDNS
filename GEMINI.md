@@ -1,10 +1,8 @@
-# Instructions for Gemini AI Regarding "My Custom DNS Server" Project
+# Instructions for Gemini AI Regarding "magicDNS" Project
 
 This document provides specific context and guidelines for Gemini when interacting with requests related to the "My Custom DNS Server" project.
 
-## Project Overview
-
-"My Custom DNS Server" is an open-source DNS resolution service developed in Python 3, specifically for Linux environments. Its primary goal is to provide a lightweight, configurable, and custom-controlled DNS solution for internal networks, development setups, or specialized use cases where a full-fledged DNS server like BIND or Unbound might be overkill.
+magicDNS
 
 ## Key Technical Details & Preferences
 
@@ -42,4 +40,4 @@ When responding to queries about this project:
 * "How can I add custom DNS records to this server?" (Explain configuration file formats and reload mechanisms).
 * "What are the best practices for logging DNS queries?" (Suggest Python logging module configuration and log rotation).
 
-By adhering to these guidelines, Gemini can provide more relevant, helpful, and personalized assistance for the "My Custom DNS Server" project.
+magicDNS
