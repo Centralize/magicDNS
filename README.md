@@ -162,9 +162,43 @@ LOG_LEVEL = INFO        # Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
 
 ## Usage
 
+The `runServer.sh` script provides commands to manage the DNS server and convert zone files.
+
+### Starting the DNS Server
+
+To start the DNS server, use the `start` command:
+
+```bash
+./runServer.sh start
+```
+
+The server will run in the foreground, and its output will be redirected to `server.log`.
+
+### Zone File Conversion
+
+You can convert standard zone files to magicDNS JSON format and vice-versa using the `convert-zone` and `export-zone` commands.
+
+#### Convert Standard Zone File to JSON
+
+To convert a standard zone file (e.g., `example.zone`) to a magicDNS JSON formatted file (e.g., `example.json`):
+
+```bash
+./runServer.sh convert-zone /path/to/your/example.zone /path/to/your/output/example.json
+```
+
+#### Export JSON Zone File to Standard Format
+
+To convert a magicDNS JSON formatted zone file (e.g., `example.json`) back to a standard zone file format (e.g., `example.txt`):
+
+```bash
+./runServer.sh export-zone /path/to/your/example.json /path/to/your/output/example.txt
+```
+
+### DNS Configuration (Linux)
+
 Once the server is running, you can configure your Linux machine (or other devices) to use it as the primary DNS resolver.
 
-### Temporary DNS Configuration (Linux)
+#### Temporary DNS Configuration (Linux)
 
 Edit `/etc/resolv.conf` (changes may be overwritten by NetworkManager):
 
@@ -175,7 +209,7 @@ sudo sed -i '1s/^/nameserver 127.0.0.1\n/' /etc/resolv.conf
 # sudo sed -i '1s/^/nameserver YOUR_SERVER_IP\n/' /etc/resolv.conf
 ```
 
-### Permanent DNS Configuration (NetworkManager - GUI or nmcli)
+#### Permanent DNS Configuration (NetworkManager - GUI or nmcli)
 
 **Using `nmcli` (command line):**
 
@@ -226,15 +260,18 @@ dig @127.0.0.1 localapp.dev # Query for a static record
 ## Project Structure
 
 ```
-my-dns-server/
+magicDNS/
 ├── src/
 │   └── app.py              # Main DNS server application logic
 │   └── config.py           # (Optional) Configuration parsing module
 │   └── utils.py            # (Optional) Utility functions
+│   └── zone_converter.py   # Script to convert standard zone files to magicDNS JSON
+│   └── zone_exporter.py    # Script to convert magicDNS JSON to standard zone files
 ├── config/
 │   └── config.ini          # Server configuration
 │   └── records.json        # (Optional) Static DNS records in JSON format
 ├── venv/                   # Python virtual environment
+├── requirements.txt        # Python dependencies
 ├── README.md               # Project documentation
 ├── GEMINI.md               # Specific instructions/notes for Gemini AI
 ├── LICENSE.md              # Project license (CC BY-NC 4.0)
